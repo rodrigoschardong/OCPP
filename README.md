@@ -1,23 +1,8 @@
 # OCPP
 Exploring and validating OCPP protocol
 
-.. image:: https://github.com/mobilityhouse/ocpp/actions/workflows/pull-request.yml/badge.svg?style=svg
-   :target: https://github.com/mobilityhouse/ocpp/actions/workflows/pull-request.yml
-
-.. image:: https://img.shields.io/pypi/pyversions/ocpp.svg
-   :target: https://pypi.org/project/ocpp/
-
-.. image:: https://img.shields.io/readthedocs/ocpp.svg
-   :target: https://ocpp.readthedocs.io/en/latest/
-
-OCPP
 ----
-
-Python package implementing the JSON version of the Open Charge Point Protocol
-(OCPP). Currently OCPP 1.6 (errata v4), OCPP 2.0 and OCPP 2.0.1 (Final Version)
-are supported.
-
-You can find the documentation on `rtd`_.
+You can find the documentation on https://github.com/mobilityhouse/ocpp
 
 Installation
 ------------
