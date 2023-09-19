@@ -28,8 +28,10 @@ class ChargePoint(cp):
         )
 
     @on("Heartbeat")
-    def on_heartbeat(self):
-        print("Got a Heartbeat!")
+    def on_heartbeat(self, **kwargs):
+        custom_data = kwargs.get('custom_data', {})
+        print("Got a Heartbeat: " + str(custom_data))
+        
         return call_result.HeartbeatPayload(
             current_time=datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S") + "Z"
         )

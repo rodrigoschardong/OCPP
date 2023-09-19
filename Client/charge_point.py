@@ -21,8 +21,14 @@ logging.basicConfig(level=logging.INFO)
 
 class ChargePoint(cp):
     async def send_heartbeat(self, interval):
-        request = call.HeartbeatPayload()
         while True:
+            request = call.HeartbeatPayload(
+                custom_data = {
+                    "Name": "Rodrigo",
+                    "Company": "Embrasul",
+                    "vendorId": "Teste"
+                }
+            )
             await self.call(request)
             await asyncio.sleep(interval)
 
