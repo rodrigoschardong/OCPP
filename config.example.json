@@ -1,0 +1,5 @@
+{
+    "ip": "XXX.XXX.XXX.XXX",
+    "port": 9000,
+    "subprotocols": ["ocpp2.0.1"]
+}

@@ -1,6 +1,7 @@
 import asyncio
 import logging
 from datetime import datetime
+import json
 
 try:
     import websockets
@@ -67,17 +68,33 @@ async def on_connect(websocket, path):
 
     await charge_point.start()
 
+def read_json_file(file_path):
+    try:
+        with open(file_path, 'r') as json_file:
+            data = json.load(json_file)
+            for key, value in data.items():
+                print(f"{key}: {value}")
+            return data
+    except FileNotFoundError:
+        print(f"File '{file_path}' not found.")
+        print("Please create a 'config.json' file from 'config.example.json' with your personal information")
+    except json.JSONDecodeError as e:
+        print(f"Error decoding JSON: {e}")
+    except Exception as e:
+        print(f"An error occurred: {e}")
 
-async def main():
+
+async def main(jsonFilePath):
+    serverConfigData = read_json_file(jsonFilePath)
     #  deepcode ignore BindToAllNetworkInterfaces: <Example Purposes>
     server = await websockets.serve(
-        on_connect, "192.168.68.84", 9000, subprotocols=["ocpp2.0.1"]
+        on_connect, serverConfigData['ip'], serverConfigData['port'], subprotocols=serverConfigData['subprotocols']
     )
 
     logging.info("Server Started listening to new connections...")
     await server.wait_closed()
 
-
 if __name__ == "__main__":
+    jsonFilePath = "../config.json"
     # asyncio.run() is used when running this example with Python >= 3.7v
-    asyncio.run(main())
+    asyncio.run(main(jsonFilePath))
