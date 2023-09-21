@@ -2,33 +2,34 @@
 Exploring and validating OCPP protocol
 
 ----
-You can find the documentation on https://github.com/mobilityhouse/ocpp
+You can read the [python documentation](https://github.com/mobilityhouse/ocpp) for more information.
 
 Installation
 ------------
 
-You can either the project install from Pypi:
+Install OCPP on python:
 
-.. code-block:: bash
-
+```bash
    $ pip install ocpp
+```
+Install websockets on python
 
-Or clone the project and install it manually using:
-
-.. code-block:: bash
-
-   $ pip install .
+```bash
+   $ pip install websockets
+```
 
 Quick start
 -----------
 
-Below you can find examples on how to create a simple OCPP 2.0 central system as
-well as an OCPP 2.0 charge point.
+- Create a config.json file from config.example.json 
+- Fill config.json file with your personal information
+- Run a server script 
+```
+   $ python ./Server/central_system.py
+```
+- Run a client script
+```
+   $ python ./Client/charge_point.py
+```
 
-.. note::
 
-   To run these examples the dependency websockets_ is required! Install it by running:
-
-   .. code-block:: bash
-
-      $ pip install websockets
